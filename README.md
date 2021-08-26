@@ -61,3 +61,27 @@ Add diagram for each case with real life case examples
 
 Pros and cons of each
  
+
+Using Vagrant:
+1. create a provision.sh on localhost
+2. inject inside vagrantfile
+3. with vagrant up Vagrantfile should run the script with commands we put in script
+4. check in your browser 192.168.10.100
+
+First we code in Vagrantfile: 
+Vagrant.configure("2") do |config|
+	config.vm.box = "ubuntu/xenial64"
+	config.vm.network "private_network", ip: "192.168.10.100"
+	config vm.provision "shell", path:"provision.sh" 
+end
+
+We create provision.sh on localhost. provision.sh contains:
+!# /bin/bash
+
+#Automating the installation of nginx
+sudo apt-get update -y
+sudo apt-get upgrade -y #sets machine up
+sudo apt-get install nginx #installs nginx
+
+Then vagrant up/ vagrant reload (if reload doesn't work use vagrant destroy and vagrant up) 
+When putting the address "192.168.10.100 in browser it should display nginx page. 

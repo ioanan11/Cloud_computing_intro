@@ -85,3 +85,22 @@ sudo apt-get install nginx #installs nginx
 
 Then vagrant up/ vagrant reload (if reload doesn't work use vagrant destroy and vagrant up) 
 When putting the address "192.168.10.100 in browser it should display nginx page. 
+
+
+
+Dependencies for node app
+-install nodejs
+
+-sudo apt-get install nodejs -y
+
+-Ensure to install correct version
+	sudo apt-get install python-software-properties
+	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+	sudo apt-get install nodejs -y
+
+-install pm2 sudo npm install pm2 -g
+
+-Ensure to run this inside the app folder - install npm npm install
+
+-Launch the app npm start
+-Check this 192.168.10.100:3000 on browser

@@ -37,6 +37,7 @@ Stages:
 6. Deployment
 
 
+
 What are the Risk level at each stage of SDLC?
 - LOW
 - Medium
@@ -48,3 +49,15 @@ Software design: Medium
 Software development: Medium
 Testing: Low
 Deployment: Medium
+
+What is on premise, cloud, hybrid cloud and multi cloud
+
+On premise: data is located within your in-house servers and IT infrastructure
+Cloud: A cloud-based server utilizes virtual technology to host a company’s applications offsite.
+Hybrid cloud: A hybrid cloud solution is a mix of public cloud and private cloud infrastructure. Organizations might use a private cloud to store sensitive data in an on-premises or colocated data center connected by a private cloud while offloading other workloads to a public cloud service or multiple public clouds.
+Multi-cloud: In a multi-cloud environment, an enterprise utilizes multiple public cloud services, most often from different cloud providers. For example, an organization might host its web front-end application on AWS and host its Exchange servers on Microsoft Azure.
+
+Add diagram for each case with real life case examples
+
+Pros and cons of each
+ 

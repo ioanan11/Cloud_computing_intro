@@ -61,6 +61,7 @@ Add diagram for each case with real life case examples
 
 Pros and cons of each
  
+**Provisioning**
 
 Using Vagrant:
 1. create a provision.sh on localhost
@@ -88,7 +89,7 @@ When putting the address "192.168.10.100 in browser it should display nginx page
 
 
 
-Dependencies for node app
+**Dependencies for node app**
 -install nodejs
 
 -sudo apt-get install nodejs -y
@@ -104,3 +105,32 @@ Dependencies for node app
 
 -Launch the app npm start
 -Check this 192.168.10.100:3000 on browser
+
+**How to create a multi machine set up**
+First one is created with node app provisioning
+Second VM with mongodb installation
+Then systemctl status mongodb
+
+**How to configure reverse proxy** 
+With nginx, we need to make the app load on ip 192.168.10.100 instead of 192.168.10.100:3000
+
+-make sure nodejs is installed and updated (sudo apt-get install)
+
+-open nginx configuration (file path: /etc/nginx/sites-available/default): sudo nano file path
+
+-in the server block the following code should be added in location:
+
+location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+-sudo npm start 
+
+-when entering in browser the ip address 192.168.10.100 the app should be running
+
